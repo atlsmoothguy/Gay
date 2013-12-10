@@ -23,6 +23,10 @@ public class MainActivity extends ActionBarActivity
     private ShakeListener mSensorListener;
     private TextView t;
     private MediaPlayer mp;
+    private MediaPlayer mp2;
+    private MediaPlayer mp3;
+
+    private int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,7 +49,22 @@ public class MainActivity extends ActionBarActivity
 
             public void onShake()
             {
-               mp.start();
+                if(i == 0)
+                {
+                    mp.start();
+                    ++i;
+                }
+                else if (i == 1)
+                {
+                    mp2.start();
+                    ++i;
+                }
+                else
+                {
+                    mp3.start();
+                    i = 0;
+                }
+
             }
         });
 
