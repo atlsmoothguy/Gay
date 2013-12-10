@@ -1,10 +1,8 @@
 package com.jj.gay;
 
+import android.app.Activity;
 import android.hardware.Sensor;
-import android.hardware.SensorListener;
 import android.hardware.SensorManager;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,35 +10,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.TextView;
 import android.media.MediaPlayer;
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends Activity
 {
 
     private SensorManager mSensorManager;
     private ShakeListener mSensorListener;
     private TextView t;
     private MediaPlayer mp;
-    private MediaPlayer mp2;
-    private MediaPlayer mp3;
-
-    private int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mp = MediaPlayer.create(this, R.raw.gay);
-
-        if (savedInstanceState == null)
-        {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+        mp = MediaPlayer.create(this, R.raw.hagay);
 
         mSensorManager = (SensorManager) getSystemService(this.SENSOR_SERVICE);
         mSensorListener = new ShakeListener();
@@ -49,22 +35,7 @@ public class MainActivity extends ActionBarActivity
 
             public void onShake()
             {
-                if(i == 0)
-                {
                     mp.start();
-                    ++i;
-                }
-                else if (i == 1)
-                {
-                    mp2.start();
-                    ++i;
-                }
-                else
-                {
-                    mp3.start();
-                    i = 0;
-                }
-
             }
         });
 

@@ -6,11 +6,10 @@
     tools:context="com.jj.gay.MainActivity"
     tools:ignore="MergeRootFrame" >
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Gay"
-        android:id="@+id/txtGay"
-        android:layout_gravity="center"/>
+        android:id="@+id/imageView"
+        android:layout_gravity="center"
+        android:src="@drawable/hagay"/>
 </FrameLayout>
